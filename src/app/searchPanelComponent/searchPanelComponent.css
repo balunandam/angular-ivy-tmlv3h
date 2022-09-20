@@ -1,0 +1,12 @@
+.layout {
+  border: 1px solid gray;
+  padding: 1px;
+  margin: 2px;
+  height: calc(100vh - 24px);
+}
+.btn-default {
+  padding: 0px;
+}
+.icons {
+  padding: 1px;
+}
