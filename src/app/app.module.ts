@@ -21,12 +21,9 @@ import * as weatherReducer from './state/reducers/weather.reducer';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    EffectsModule.forRoot([]),
-    StoreModule.forFeature(
-      weatherReducer.weatherReducerKey,
-      weatherReducer.reducer
-    ),
-    StoreModule.forRoot([])
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('weather-management', weatherReducer.reducer),
+    EffectsModule.forRoot([weatherEffects]),
   ],
   declarations: [
     AppComponent,
