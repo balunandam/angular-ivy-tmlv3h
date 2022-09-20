@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 export const getWeatherReport = createAction(
   '[weather-management] getWeatherReport',
-  props<{ location: any }>()
+  props<{ locations: any }>()
 );
 
 export const getWeatherReportSuccess = createAction(
@@ -9,7 +9,7 @@ export const getWeatherReportSuccess = createAction(
   props<{ response: any }>()
 );
 
-export const LoadFailure = createAction(
-  '[weather-management] LoadFailure',
+export const getWeatherReportFailure = createAction(
+  '[weather-management] getWeatherReportFailure',
   props<{ error: any }>()
 );

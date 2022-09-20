@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ApiService } from '../services/apiservice';
 import { select, Store } from '@ngrx/store';
-import * as weatherAction from '../state/actions/weather.action';
 
 @Component({
   selector: 'app-searchPanelComponent',
@@ -11,19 +9,18 @@ import * as weatherAction from '../state/actions/weather.action';
 })
 export class searchPanelComponent {
   search: FormControl = new FormControl();
+  @Output() public cityName = new EventEmitter<any>();
+
   previousValues: string[] = ['test1', 'test2', 'test3'];
   suggestions: string[] = [];
-  constructor(
-    private ApiService: ApiService,
-    private readonly store: Store<any>
-  ) {}
+  data;
+  constructor(private readonly store: Store<any>) {}
   ngOnInit() {
     this.suggest();
   }
   searchCity(cityName: string) {
     debugger;
-    this.store.dispatch(weatherAction.getWeatherReport({ location: cityName }));
-    // this.ApiService.getWeather(cityName).subscribe((data) => console.log(data));
+    this.cityName.emit(cityName);
   }
   suggest() {
     if (this.search.value) {

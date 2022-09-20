@@ -12,16 +12,18 @@ export class weatherEffects {
     private readonly actions: Actions,
     private readonly weatherService: ApiService
   ) {}
+
   GetWeatherList = createEffect(() =>
     this.actions.pipe(
       ofType(weatherAction.getWeatherReport),
-      exhaustMap(() =>
-        this.weatherService.getWeather(location).pipe(
+      exhaustMap((data) =>
+        this.weatherService.getWeather(data).pipe(
           map((response: any) => {
-            console.log(response);
             return weatherAction.getWeatherReportSuccess({ response });
           }),
-          catchError((error) => of(weatherAction.LoadFailure(error)))
+          catchError((error) =>
+            of(weatherAction.getWeatherReportFailure(error))
+          )
         )
       )
     )

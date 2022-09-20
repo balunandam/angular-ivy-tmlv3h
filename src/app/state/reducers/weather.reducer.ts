@@ -11,10 +11,16 @@ export const reducerWeatherManagement = createReducer(
   initialState,
   on(weatherActions.getWeatherReportSuccess, (state, { response }) => {
     debugger;
-    console.log(response);
     return {
       ...state,
-      weatherList: response.value,
+      weatherList: response,
+    };
+  }),
+  on(weatherActions.getWeatherReportFailure, (state, { error }) => {
+    debugger;
+    return {
+      ...state,
+      weatherList: error,
     };
   })
 );

@@ -16,10 +16,10 @@ export class ApiService {
   // }
 
   public getWeather(data): Observable<any> {
-    debugger;
+    const datas = data;
     return this.http
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?APPID=eb03b1f5e5afb5f4a4edb40c1ef2f534&q=${location}`
+        `https://api.openweathermap.org/data/2.5/weather?APPID=eb03b1f5e5afb5f4a4edb40c1ef2f534&q=${datas.locations}`
       )
       .pipe(
         map((events) => {
