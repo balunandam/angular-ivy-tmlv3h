@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 
@@ -10,28 +10,29 @@ import { select, Store } from '@ngrx/store';
 export class searchPanelComponent {
   search: FormControl = new FormControl();
   @Output() public cityName = new EventEmitter<any>();
-
-  previousValues: string[] = ['test1', 'test2', 'test3'];
   suggestions: string[] = [];
-  data;
+  @Input() previousCityList;
   constructor(private readonly store: Store<any>) {}
   ngOnInit() {
     this.suggest();
   }
   searchCity(cityName: string) {
-    debugger;
     this.cityName.emit(cityName);
   }
   suggest() {
     if (this.search.value) {
-      this.suggestions = this.previousValues.filter((item) => {
+      this.suggestions = this.previousCityList.filter((item) => {
         return item.startsWith(this.search.value);
       });
       this.suggestions = this.suggestions.slice(0, 100);
     } else {
-      this.suggestions = this.previousValues;
+      this.suggestions = this.previousCityList;
     }
   }
-  reload() {}
-  delete() {}
+  reload(cityName) {
+    this.cityName.emit(cityName);
+  }
+  delete(index) {
+    this.suggestions.splice(index, 1);
+  }
 }

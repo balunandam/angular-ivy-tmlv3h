@@ -2,9 +2,13 @@
   <div class="col-sm-4">
     <app-searchPanelComponent
       (cityName)="searchCity($event)"
+      [previousCityList]="previousCityList"
     ></app-searchPanelComponent>
   </div>
   <div class="col-sm-8">
-    <app-homePanelComponent [data]="data"></app-homePanelComponent>
+    <app-homePanelComponent
+      [data]="data"
+      (reloadCity)="reloadCity()"
+    ></app-homePanelComponent>
   </div>
 </div>

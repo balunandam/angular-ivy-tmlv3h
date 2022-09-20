@@ -11,22 +11,32 @@ import { Subject } from 'rxjs/internal/Subject';
   styleUrls: ['./weatherHomeComponent.css'],
 })
 export class weatherHomeComponent {
-  data;
+  data: any = {};
+  previousCityList: any = [];
   public ngUnsubscribe: Subject<any> = new Subject();
   constructor(private readonly store: Store<any>) {}
   ngOnInit() {
-    debugger;
     this.store
       .pipe(select(weatherSelector.GetWeatherList))
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((res) => {
-        if (res && res.result) {
-          this.data = res.result;
+        if (res.message === 'city not found') {
+          alert(res.message);
+        } else if (res.city.name) {
+          this.data = res;
+          debugger;
+          if (!this.previousCityList.includes(res.city.name)) {
+            this.previousCityList.push(res.city.name);
+          }
         }
       });
   }
   searchCity(event) {
-    debugger;
     this.store.dispatch(weatherAction.getWeatherReport({ locations: event }));
+  }
+  reloadCity() {
+    this.store.dispatch(
+      weatherAction.getWeatherReport({ locations: this.data.city.name })
+    );
   }
 }

@@ -30,7 +30,7 @@
       />
     </div>
     <div class="suggestions" *ngIf="suggestions.length">
-      <div class="row" *ngFor="let item of suggestions">
+      <div class="row" *ngFor="let item of suggestions; let i = index">
         <div class="col-sm-8">
           <p>{{item}}</p>
         </div>
@@ -38,7 +38,7 @@
           <button
             type="button"
             class="btn btn-default icons"
-            (click)="reload()"
+            (click)="reload(item)"
           >
             <img
               src="https://img.icons8.com/ios-glyphs/15/000000/refresh--v1.png"
@@ -47,7 +47,7 @@
           <button
             type="button"
             class="btn btn-default icons"
-            (click)="delete()"
+            (click)="delete(i)"
           >
             <img
               src="https://img.icons8.com/ios-glyphs/15/000000/multiply.png"

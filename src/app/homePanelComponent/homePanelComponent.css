@@ -4,3 +4,6 @@
   margin: 2px;
   height: calc(100vh - 24px);
 }
+p {
+  margin-bottom: 0px;
+}

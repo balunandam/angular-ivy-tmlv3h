@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-homePanelComponent',
@@ -6,9 +6,15 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./homePanelComponent.css'],
 })
 export class homePanelComponent {
+  @Output() public reloadCity = new EventEmitter<any>();
   @Input() data;
   constructor() {}
-  ngOnChanges() {
-    console.log(this.data);
+  formateDate(date) {
+    var t = new Date(1970, 0, 1);
+    t.setSeconds(date);
+    return t;
+  }
+  reload() {
+    this.reloadCity.emit();
   }
 }

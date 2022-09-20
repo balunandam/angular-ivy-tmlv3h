@@ -10,14 +10,12 @@ export const initialState: IModelWeatherRequest = {
 export const reducerWeatherManagement = createReducer(
   initialState,
   on(weatherActions.getWeatherReportSuccess, (state, { response }) => {
-    debugger;
     return {
       ...state,
       weatherList: response,
     };
   }),
   on(weatherActions.getWeatherReportFailure, (state, { error }) => {
-    debugger;
     return {
       ...state,
       weatherList: error,
