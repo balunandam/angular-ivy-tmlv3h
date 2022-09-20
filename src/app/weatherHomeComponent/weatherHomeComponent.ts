@@ -24,7 +24,6 @@ export class weatherHomeComponent {
           alert(res.message);
         } else if (res.city.name) {
           this.data = res;
-          debugger;
           if (!this.previousCityList.includes(res.city.name)) {
             this.previousCityList.push(res.city.name);
           }
