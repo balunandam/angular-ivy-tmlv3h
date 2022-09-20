@@ -26,7 +26,7 @@ import * as weatherReducer from './state/reducers/weather.reducer';
       weatherReducer.weatherReducerKey,
       weatherReducer.reducer
     ),
-    StoreModule.forRoot([]),
+    StoreModule.forRoot([])
   ],
   declarations: [
     AppComponent,
