@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { homePanelComponent } from './homePanelComponent/homePanelComponent';
 import { searchPanelComponent } from './searchPanelComponent/searchPanelComponent';
 import { weatherHomeComponent } from './weatherHomeComponent/weatherHomeComponent';
@@ -27,7 +26,6 @@ import * as weatherReducer from './state/reducers/weather.reducer';
   ],
   declarations: [
     AppComponent,
-    HelloComponent,
     homePanelComponent,
     weatherHomeComponent,
     searchPanelComponent,
