@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class homePanelComponent {
   @Output() public reloadCity = new EventEmitter<any>();
   @Input() data;
-  iconArray = [{ id: 803, }];
+  iconArray = [{ id: 803, imageURL: 'assets/cloudy.svg' }];
   constructor() {}
   formateDate(date) {
     var t = new Date(1970, 0, 1);
