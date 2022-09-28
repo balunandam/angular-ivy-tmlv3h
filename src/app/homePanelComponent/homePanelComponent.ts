@@ -13,6 +13,7 @@ export class homePanelComponent {
   formateDate(date) {
     var t = new Date(1970, 0, 1);
     t.setSeconds(date);
+    debugger
     return t;
   }
   reload() {
