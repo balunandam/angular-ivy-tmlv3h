@@ -17,7 +17,7 @@
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "tsconfig.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css"],
             "scripts": []
@@ -39,7 +39,15 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
-            }
+            },
+            "development": {
+            "buildOptimizer": false,
+            "optimization": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "sourceMap": true,
+            "namedChunks": true
+          }
           }
         },
         "serve": {

@@ -1,19 +1,19 @@
 <div class="layout" *ngIf="data.city">
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-xs-4">
       <h3 style="text-align: left">{{data.city.name}}</h3>
     </div>
-    <div class="col-sm-8">
+    <div class="col-xs-8">
       <button type="button" class="btn btn-primary" (click)="reload()">
         Reload
       </button>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-xs-4">
       <img src="assets/weather.svg" style="width: 200px" />
     </div>
-    <div class="col-sm-4">
+    <div class="col-xs-4">
       <div>{{data.list[0].weather[0].description}}</div>
       <br />
       <div>windSpeed: {{data.list[0].speed}}</div>
@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="row">
-    <div *ngFor="let item of data.list" class="col-sm-1">
+    <div *ngFor="let item of data.list" class="col-xs-1">
       <p>{{ formateDate(item.dt) | date: 'dd/MM' }}</p>
       <br />
       <img
